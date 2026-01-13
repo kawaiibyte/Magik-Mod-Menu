@@ -25,6 +25,7 @@ class Program
         bool sunIncrease = false;
         bool zombieInf = false;
         bool godPlayer = false;
+        bool limboPage = false;
 
 
         // offsets
@@ -32,6 +33,7 @@ class Program
         IntPtr cooldownTimeAddress = moduleBase + 0x958BF;
         IntPtr sunValueAddress = moduleBase + 0x1F636;
         IntPtr zombieHurtAddress = moduleBase + 0x145E04;
+        IntPtr limboPageAddress = moduleBase + 0x31CE0;
 
         while (true)
         {
@@ -52,9 +54,9 @@ class Program
 2. Inf health
 3. No cooldown
 4. Planting increases sun bank
-5. No chomper bite cooldown (TODO)
-6. Godmode (activates 2,3,4, and 5 all at once)
-7. Zombies take no damages (only recommended for I. Zombie)
+5. Godmode (activates 2,3,and 4 all at once)
+6. Zombies take no damages (only recommended for I. Zombie)
+7. Enable limbo page
 Enter option:";
 
             while (true)
@@ -131,7 +133,7 @@ Enter option:";
                         }
                         break;
 
-                    case "6":
+                    case "5":
                         if (!godPlayer)
                         {
                             Status("Godmode enabled", true);
@@ -150,7 +152,7 @@ Enter option:";
                         }
                         break;
 
-                    case "7":
+                    case "6":
                         if (!zombieInf)
                         {
                             // popcapgame1.exe+145E04 - 89 AF C8 00 00 00
@@ -165,6 +167,22 @@ Enter option:";
                             zombieInf = false;
                         }
                         break;
+
+                    case "7":
+                        if (!limboPage)
+                        {
+                            // popcapgame1.exe+31CE0 - 88 58 64             
+                            Status("Limbo page enabled", true);
+                            swed.WriteBytes(limboPageAddress, "90 90 90");
+                            limboPage = true;
+                        }
+                        else
+                        {
+                            Status("Limbo page disabled", false);
+                            swed.WriteBytes(limboPageAddress, "88 58 64");
+                            limboPage = false;
+                        }
+                            break;
 
                     default:
                         Console.ForegroundColor = ConsoleColor.Yellow;
