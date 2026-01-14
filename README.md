@@ -12,6 +12,8 @@ or
 
 Git clone the repo and build the exe yourself with visual studio
 
+YOU NEED .NET 10.0 TO RUN THIS
+
 ## Mod features
 1. No sun loss when playing plants
 2. No seedpacket cooldown
