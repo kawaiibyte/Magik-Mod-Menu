@@ -6,7 +6,7 @@ This was my first ever c# program, its entirly a learning project so its not ver
 NOTE: THIS ONLY WORKS WITH GOTY VERSION ON STEAM, THIS CANNOT DETECT PIRATED COPIES OF THE GAME, USING ANY OTHER VERSION OF PVZ WILL NOT WORK DUE TO THE OFFSET DIFFERENCE
 
 ## Usage
-Download ```Magik.Mod.Menu.7z``` from [releases](https://github.com/reversecel/Magik-Mod-Menu/releases/tag/Release) and run ```MagikCLIMM.exe```
+Download ```Magik.Mod.Menu.7z``` from [releases](https://github.com/reversecel/Magik-Mod-Menu/releases/) and run ```MagikCLIMM.exe```
 
 or
 
