@@ -20,6 +20,7 @@ YOU NEED .NET 10.0 TO RUN THIS
 3. Activate limbo page
 4. No zombie damage
 5. No plant damage
+6. Auto sun collection
 
 Showcase can be found [here](https://www.youtube.com/watch?v=yYDCOKl7PHg)
 
