@@ -26,6 +26,7 @@ class Program
         bool zombieInf = false;
         bool godPlayer = false;
         bool limboPage = false;
+        bool autoSun = false;
 
 
         // offsets
@@ -34,6 +35,7 @@ class Program
         IntPtr sunValueAddress = moduleBase + 0x1F636;
         IntPtr zombieHurtAddress = moduleBase + 0x145E04;
         IntPtr limboPageAddress = moduleBase + 0x31CE0;
+        IntPtr autoSunAddress = moduleBase + 0x352F2;
 
         while (true)
         {
@@ -57,6 +59,7 @@ class Program
 5. Godmode (activates 2,3,and 4 all at once)
 6. Zombies take no damages (only recommended for I. Zombie)
 7. Enable limbo page
+8. Auto collect sun
 Enter option:";
 
             while (true)
@@ -95,7 +98,7 @@ Enter option:";
                         else
                         {
                             Status("Inf health disabled", false);
-                            swed.WriteBytes(sunValueAddress, "83 46 40 FC");
+                            swed.WriteBytes(plantHealthAddress, "83 46 40 FC");
                             infHealth = false;
                         }
                         break;
@@ -182,7 +185,23 @@ Enter option:";
                             swed.WriteBytes(limboPageAddress, "88 58 64");
                             limboPage = false;
                         }
-                            break;
+                        break;
+
+                    case "8":
+                        if (!autoSun)
+                        {
+                            // INJECT - 75 09                
+                            Status("Auto sun collection enabled", true);
+                            swed.WriteBytes(autoSunAddress, "EB 09");
+                            autoSun = true;
+                        }
+                        else
+                        {
+                            Status("Auto sun collection disabled", false);
+                            swed.WriteBytes(autoSunAddress, "75 09");
+                            autoSun = false;
+                        }
+                        break;
 
                     default:
                         Console.ForegroundColor = ConsoleColor.Yellow;
