@@ -1,3 +1,5 @@
+## Notice
+THIS IS CURRENTLY BEING REWRITTEN IN C++ AND TO WORK ON BOTH LINUX AND WINDOWS, NO LONGER WILL BE UPDATE
 # Magik Mod Menu
 A cli mod menu for pvz written in c#
 ## Info
